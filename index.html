@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>For Biswa ❤️</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+        }
+
+        body {
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+            color: white;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff4f81,
+                    #ff86aa,
+                    #9b5de5
+                );
+        }
+
+        .floating-hearts {
+            position: fixed;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .floating-heart {
+            position: absolute;
+            bottom: -60px;
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 20px;
+
+            animation:
+                floatHeart linear forwards;
+        }
+
+        @keyframes floatHeart {
+
+            0% {
+                transform:
+                    translateY(0)
+                    rotate(0deg)
+                    scale(0.7);
+
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 0.8;
+            }
+
+            50% {
+                transform:
+                    translateY(-50vh)
+                    rotate(25deg)
+                    scale(1);
+            }
+
+            100% {
+                transform:
+                    translateY(-115vh)
+                    rotate(-25deg)
+                    scale(1.2);
+
+                opacity: 0;
+            }
+        }
+
+        .screen {
+            position: fixed;
+            inset: 0;
+
+            display: none;
+
+            align-items: center;
+            justify-content: center;
+
+            flex-direction: column;
+
+            text-align: center;
+
+            padding: 25px;
+
+            z-index: 1;
+        }
+
+        .screen.show {
+            display: flex;
+        }
+
+        .heart {
+            font-size: 90px;
+            margin-bottom: 25px;
+
+            animation:
+                heartbeat 1.2s infinite;
+        }
+
+        @keyframes heartbeat {
+
+            0% {
+                transform: scale(1);
+            }
+
+            15% {
+                transform: scale(1.18);
+            }
+
+            30% {
+                transform: scale(1);
+            }
+
+            45% {
+                transform: scale(1.12);
+            }
+
+            60% {
+                transform: scale(1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        h1 {
+            margin: 0 0 12px;
+            font-size: 56px;
+        }
+
+        h2 {
+            margin: 0 0 12px;
+            font-size: 32px;
+        }
+
+        p {
+            margin: 0;
+            font-size: 19px;
+        }
+
+        button {
+            border: none;
+
+            margin-top: 30px;
+
+            padding: 15px 38px;
+
+            border-radius: 50px;
+
+            background: white;
+
+            color: #e84368;
+
+            font-size: 18px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 8px 25px
+                rgba(0, 0, 0, 0.2);
+
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+        button:hover {
+            transform: scale(1.08);
+
+            box-shadow:
+                0 10px 30px
+                rgba(0, 0, 0, 0.25);
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
+        .answers {
+            display: flex;
+
+            gap: 15px;
+
+            flex-wrap: wrap;
+
+            justify-content: center;
+        }
+
+        .loading-area {
+            width: min(400px, 85vw);
+
+            margin-top: 30px;
+        }
+
+        .loading-track {
+            width: 100%;
+
+            height: 18px;
+
+            border-radius: 20px;
+
+            background:
+                rgba(255, 255, 255, 0.3);
+
+            overflow: hidden;
+        }
+
+        #loadingBar {
+            width: 0%;
+
+            height: 100%;
+
+            border-radius: 20px;
+
+            background: white;
+
+            transition:
+                width 0.05s linear;
+        }
+
+        #loadingText {
+            margin-top: 15px;
+
+            font-size: 24px;
+
+            font-weight: bold;
+        }
+
+        .love-slider {
+            width: min(450px, 85vw);
+
+            margin-top: 30px;
+        }
+
+        .slider-value {
+            font-size: 34px;
+
+            font-weight: bold;
+
+            margin-bottom: 25px;
+        }
+
+        #loveSlider {
+            width: 100%;
+
+            height: 10px;
+
+            appearance: none;
+
+            border-radius: 20px;
+
+            background:
+                rgba(255, 255, 255, 0.35);
+
+            outline: none;
+
+            cursor: pointer;
+        }
+
+        #loveSlider::-webkit-slider-thumb {
+            appearance: none;
+
+            width: 42px;
+
+            height: 42px;
+
+            border: none;
+
+            background: white;
+
+            cursor: pointer;
+
+            clip-path:
+                polygon(
+                    50% 100%,
+                    0% 40%,
+                    0% 20%,
+                    15% 0%,
+                    35% 0%,
+                    50% 18%,
+                    65% 0%,
+                    85% 0%,
+                    100% 20%,
+                    100% 40%
+                );
+
+            filter:
+                drop-shadow(
+                    0 4px 8px
+                    rgba(0,0,0,0.25)
+                );
+
+            animation:
+                sliderHeart 1s infinite;
+        }
+
+        #loveSlider::-moz-range-thumb {
+            width: 42px;
+
+            height: 42px;
+
+            border: none;
+
+            background: white;
+
+            cursor: pointer;
+
+            clip-path:
+                polygon(
+                    50% 100%,
+                    0% 40%,
+                    0% 20%,
+                    15% 0%,
+                    35% 0%,
+                    50% 18%,
+                    65% 0%,
+                    85% 0%,
+                    100% 20%,
+                    100% 40%
+                );
+        }
+
+        @keyframes sliderHeart {
+
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.18);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .final-heart {
+            font-size: 150px;
+
+            animation:
+                bigHeart 1s infinite;
+        }
+
+        .final-text {
+            font-size: 48px;
+
+            font-weight: 900;
+
+            margin-top: 20px;
+
+            text-shadow:
+                0 5px 20px
+                rgba(0,0,0,0.2);
+        }
+
+        @keyframes bigHeart {
+
+            0% {
+                transform: scale(1);
+            }
+
+            25% {
+                transform: scale(1.2);
+            }
+
+            40% {
+                transform: scale(1);
+            }
+
+            60% {
+                transform: scale(1.15);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .heart {
+                font-size: 70px;
+            }
+
+            h1 {
+                font-size: 42px;
+            }
+
+            h2 {
+                font-size: 26px;
+            }
+
+            p {
+                font-size: 17px;
+            }
+
+            .answers {
+                flex-direction: column;
+            }
+
+            .answers button {
+                width: 220px;
+            }
+
+            .final-heart {
+                font-size: 110px;
+            }
+
+            .final-text {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div
+        class="floating-hearts"
+        id="floatingHearts">
+    </div>
+
+
+    <!-- SCREEN 1 -->
+
+    <section
+        id="welcomeScreen"
+        class="screen show">
+
+        <div class="heart">
+            ❤️
+        </div>
+
+        <h1>
+            Biswa...
+        </h1>
+
+        <p>
+            Wait, I have something for you ❤️
+        </p>
+
+        <button id="continueButton">
+            Continue ❤️
+        </button>
+
+    </section>
+
+
+    <!-- SCREEN 2 -->
+
+    <section
+        id="loadingScreen"
+        class="screen">
+
+        <div class="heart">
+            ❤️
+        </div>
+
+        <h2>
+            Just a little moment...
+        </h2>
+
+        <div class="loading-area">
+
+            <div class="loading-track">
+
+                <div id="loadingBar">
+                </div>
+
+            </div>
+
+            <div id="loadingText">
+                0%
+            </div>
+
+        </div>
+
+        <p style="margin-top: 15px;">
+            Please wait ❤️
+        </p>
+
+    </section>
+
+
+    <!-- SCREEN 3 -->
+
+    <section
+        id="loveScreen"
+        class="screen">
+
+        <div class="heart">
+            ❤️
+        </div>
+
+        <h2>
+            Do you love me?
+        </h2>
+
+        <p>
+            Be honest... 🥺
+        </p>
+
+        <div class="answers">
+
+            <button data-answer="Yes ❤️">
+                Yes ❤️
+            </button>
+
+            <button data-answer="Of course 💕">
+                Of course 💕
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- SCREEN 4 -->
+
+    <section
+        id="sliderScreen"
+        class="screen">
+
+        <div class="heart">
+            ❤️
+        </div>
+
+        <h2>
+            Kitna pyaar karti ho? 🥺❤️
+        </h2>
+
+        <p>
+            Dil se answer dena...
+        </p>
+
+        <div class="love-slider">
+
+            <div class="slider-value">
+
+                <span id="lovePercent">
+                    50
+                </span>%
+
+            </div>
+
+            <input
+                type="range"
+                id="loveSlider"
+                min="0"
+                max="100"
+                value="50"
+            >
+
+        </div>
+
+        <button id="loveContinueButton">
+            Continue ❤️
+        </button>
+
+    </section>
+
+
+    <!-- SCREEN 5 -->
+
+    <section
+        id="finalScreen"
+        class="screen">
+
+        <div class="final-heart">
+            ❤️
+        </div>
+
+        <div class="final-text">
+            I LOVE YOU BISWA
+        </div>
+
+        <p style="margin-top: 20px;">
+            ❤️ Forever & Always ❤️
+        </p>
+
+    </section>
+
+
+    <script>
+
+        /* ==========================================
+           SUPABASE CONFIGURATION
+        ========================================== */
+
+        const SUPABASE_URL =
+            "https://kqkajesczdosciafnskh.supabase.co";
+
+        const SUPABASE_PUBLISHABLE_KEY =
+            "sb_publishable_toqJwHACx2aQPig2D6zivw_GfAIvbfu";
+
+
+        /* ==========================================
+           ELEMENTS
+        ========================================== */
+
+        const welcomeScreen =
+            document.getElementById(
+                "welcomeScreen"
+            );
+
+        const loadingScreen =
+            document.getElementById(
+                "loadingScreen"
+            );
+
+        const loveScreen =
+            document.getElementById(
+                "loveScreen"
+            );
+
+        const sliderScreen =
+            document.getElementById(
+                "sliderScreen"
+            );
+
+        const finalScreen =
+            document.getElementById(
+                "finalScreen"
+            );
+
+        const continueButton =
+            document.getElementById(
+                "continueButton"
+            );
+
+        const loadingBar =
+            document.getElementById(
+                "loadingBar"
+            );
+
+        const loadingText =
+            document.getElementById(
+                "loadingText"
+            );
+
+        const loveSlider =
+            document.getElementById(
+                "loveSlider"
+            );
+
+        const lovePercent =
+            document.getElementById(
+                "lovePercent"
+            );
+
+        const loveContinueButton =
+            document.getElementById(
+                "loveContinueButton"
+            );
+
+
+        /* ==========================================
+           WELCOME → LOADING
+        ========================================== */
+
+        continueButton.addEventListener(
+            "click",
+            function () {
+
+                welcomeScreen
+                    .classList
+                    .remove("show");
+
+                loadingScreen
+                    .classList
+                    .add("show");
+
+                startLoading();
+
+            }
+        );
+
+
+        /* ==========================================
+           LOADING
+        ========================================== */
+
+        function startLoading() {
+
+            let percentage = 0;
+
+            const timer =
+                setInterval(
+                    function () {
+
+                        percentage++;
+
+                        loadingBar.style.width =
+                            percentage + "%";
+
+                        loadingText.textContent =
+                            percentage + "%";
+
+
+                        if (
+                            percentage >= 100
+                        ) {
+
+                            clearInterval(timer);
+
+                            setTimeout(
+                                function () {
+
+                                    loadingScreen
+                                        .classList
+                                        .remove("show");
+
+                                    loveScreen
+                                        .classList
+                                        .add("show");
+
+                                },
+                                500
+                            );
+
+                        }
+
+                    },
+                    30
+                );
+        }
+
+
+        /* ==========================================
+           LOVE ANSWER
+        ========================================== */
+
+        let selectedLoveAnswer = "";
+
+
+        const answerButtons =
+            document.querySelectorAll(
+                ".answers button"
+            );
+
+
+        answerButtons.forEach(
+            function (button) {
+
+                button.addEventListener(
+                    "click",
+                    function () {
+
+                        selectedLoveAnswer =
+                            button.getAttribute(
+                                "data-answer"
+                            );
+
+
+                        localStorage.setItem(
+                            "biswaLoveAnswer",
+                            selectedLoveAnswer
+                        );
+
+
+                        loveScreen
+                            .classList
+                            .remove("show");
+
+                        sliderScreen
+                            .classList
+                            .add("show");
+
+                    }
+                );
+
+            }
+        );
+
+
+        /* ==========================================
+           LOVE SLIDER
+        ========================================== */
+
+        loveSlider.addEventListener(
+            "input",
+            function () {
+
+                lovePercent.textContent =
+                    loveSlider.value;
+
+            }
+        );
+
+
+        /* ==========================================
+           SAVE ANSWER TO SUPABASE
+        ========================================== */
+
+        async function saveAnswerToSupabase(
+            loveAnswer,
+            loveAmount
+        ) {
+
+            try {
+
+                const response =
+                    await fetch(
+                        SUPABASE_URL +
+                        "/rest/v1/biswa_answers",
+                        {
+                            method: "POST",
+
+                            headers: {
+                                "Content-Type":
+                                    "application/json",
+
+                                "apikey":
+                                    SUPABASE_PUBLISHABLE_KEY,
+
+                                "Authorization":
+                                    "Bearer " +
+                                    SUPABASE_PUBLISHABLE_KEY,
+
+                                "Prefer":
+                                    "return=minimal"
+                            },
+
+                            body:
+                                JSON.stringify({
+                                    love_answer:
+                                        loveAnswer,
+
+                                    love_amount:
+                                        Number(
+                                            loveAmount
+                                        )
+                                })
+                        }
+                    );
+
+
+                if (!response.ok) {
+
+                    const errorText =
+                        await response.text();
+
+                    console.error(
+                        "Supabase error:",
+                        errorText
+                    );
+
+                    return false;
+                }
+
+
+                console.log(
+                    "Answer saved successfully ❤️"
+                );
+
+                return true;
+
+            }
+
+            catch (error) {
+
+                console.error(
+                    "Database connection error:",
+                    error
+                );
+
+                return false;
+            }
+        }
+
+
+        /* ==========================================
+           SLIDER → FINAL
+        ========================================== */
+
+        loveContinueButton.addEventListener(
+            "click",
+            async function () {
+
+                const loveAmount =
+                    Number(
+                        loveSlider.value
+                    );
+
+
+                /* Save locally */
+
+                localStorage.setItem(
+                    "biswaLoveAmount",
+                    loveAmount
+                );
+
+
+                /* Save to Supabase */
+
+                await saveAnswerToSupabase(
+                    selectedLoveAnswer,
+                    loveAmount
+                );
+
+
+                /* Show final screen */
+
+                sliderScreen
+                    .classList
+                    .remove("show");
+
+                finalScreen
+                    .classList
+                    .add("show");
+
+            }
+        );
+
+
+        /* ==========================================
+           FLOATING HEARTS
+        ========================================== */
+
+        const floatingHearts =
+            document.getElementById(
+                "floatingHearts"
+            );
+
+
+        function createFloatingHeart() {
+
+            const heart =
+                document.createElement(
+                    "div"
+                );
+
+
+            heart.className =
+                "floating-heart";
+
+
+            heart.textContent =
+                Math.random() > 0.5
+                    ? "❤️"
+                    : "💕";
+
+
+            heart.style.left =
+                Math.random() * 100 + "%";
+
+
+            heart.style.fontSize =
+                (
+                    15 +
+                    Math.random() * 25
+                ) + "px";
+
+
+            heart.style.animationDuration =
+                (
+                    5 +
+                    Math.random() * 5
+                ) + "s";
+
+
+            floatingHearts.appendChild(
+                heart
+            );
+
+
+            setTimeout(
+                function () {
+
+                    heart.remove();
+
+                },
+                10000
+            );
+        }
+
+
+        setInterval(
+            createFloatingHeart,
+            500
+        );
+
+    </script>
+
+</body>
+</html>

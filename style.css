@@ -1,0 +1,171 @@
+```css
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3, #c471ed);
+    color: white;
+    overflow: hidden;
+}
+
+.screen {
+    position: absolute;
+    inset: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 25px;
+}
+
+.screen.active {
+    display: flex;
+}
+
+.heart {
+    font-size: 90px;
+    animation: heartbeat 1.4s infinite;
+    margin-bottom: 20px;
+}
+
+.small-heart {
+    font-size: 65px;
+}
+
+.question-heart {
+    font-size: 75px;
+    margin-bottom: 20px;
+    animation: heartbeat 1.2s infinite;
+}
+
+h1 {
+    font-size: 55px;
+    margin-bottom: 12px;
+}
+
+h2 {
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
+p {
+    font-size: 20px;
+    opacity: 0.95;
+}
+
+.cute-text {
+    font-size: 18px;
+}
+
+button {
+    margin-top: 35px;
+    padding: 15px 38px;
+    border: none;
+    border-radius: 50px;
+    background: white;
+    color: #e84368;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+button:hover {
+    transform: scale(1.08);
+}
+
+.answer-buttons {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.answer-buttons button {
+    margin-top: 28px;
+    min-width: 150px;
+}
+
+.loading-box {
+    width: min(400px, 85vw);
+    height: 18px;
+    background: rgba(255,255,255,0.3);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+#loadingBar {
+    width: 0%;
+    height: 100%;
+    background: white;
+    border-radius: 20px;
+    transition: width 0.08s linear;
+}
+
+#loadingPercent {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+@keyframes heartbeat {
+    0% {
+        transform: scale(1);
+    }
+
+    15% {
+        transform: scale(1.18);
+    }
+
+    30% {
+        transform: scale(1);
+    }
+
+    45% {
+        transform: scale(1.15);
+    }
+
+    60% {
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 600px) {
+
+    h1 {
+        font-size: 42px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    p {
+        font-size: 17px;
+    }
+
+    .heart {
+        font-size: 75px;
+    }
+
+    .question-heart {
+        font-size: 65px;
+    }
+
+    .answer-buttons {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .answer-buttons button {
+        width: 220px;
+    }
+}
+```
